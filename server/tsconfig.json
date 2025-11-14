@@ -9,8 +9,8 @@
     "moduleResolution": "NodeNext",
 
     // Modern JavaScript target
-    "target": "ES2024",
-    "lib": ["ES2024"],
+    "target": "ES2022",
+    "lib": ["ES2022"],
 
     // Node typings
     "types": ["node"],
@@ -27,6 +27,9 @@
     // Make NodeNext work properly with TS
     "verbatimModuleSyntax": false,
     "isolatedModules": false,
-    "moduleDetection": "force"
+    "moduleDetection": "force",
+
+    // Allow importing ES Modules like dotenv
+    "esModuleInterop": true
   }
 }
