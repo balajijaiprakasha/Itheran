@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";  // ⭐ IMPORT
 
 interface FormData {
     username?: string;
@@ -12,6 +13,8 @@ const API_BASE_URL = API_BASE
     : "http://localhost:3030/api/users";
 
 const AuthForm: React.FC = () => {
+    const navigate = useNavigate();  // ⭐ INIT
+
     const DARK_PRIMARY = "#191A23";
     const LIGHT_GRAY = "#F3F3F3";
     const GREEN_ACCENT = "#B9FF66";
@@ -43,12 +46,10 @@ const AuthForm: React.FC = () => {
         setError(null);
         setIsLoading(false);
 
-        if (!isLoginView) {
-            setTimeout(() => {
-                setIsLoginView(true);
-                setFormData({ email: "", password: "", username: "" });
-            }, 1500);
-        }
+        // ⭐ REDIRECT TO HOME PAGE
+        setTimeout(() => {
+            navigate("/");  // ⭐ Navigate to home
+        }, 1000);
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
@@ -103,10 +104,7 @@ const AuthForm: React.FC = () => {
     };
 
     return (
-        <div
-            className="flex items-center justify-center min-h-screen px-6"
-            style={{  }}
-        >
+        <div className="flex items-center justify-center min-h-screen px-6">
             <div
                 className="w-full max-w-md rounded-3xl p-10"
                 style={{
