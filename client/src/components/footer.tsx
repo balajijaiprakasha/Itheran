@@ -110,7 +110,7 @@ export default function Footer() {
                                 }}
                             />
                             <button
-                                className="flex-shrink-0 w-full sm:w-auto px-6 py-4 rounded-xl font-semibold text-sm transition hover:opacity-90"
+                                className=" w-full sm:w-auto px-6 py-4 rounded-xl font-semibold text-sm transition hover:opacity-90"
                                 style={{ backgroundColor: GREEN_ACCENT, color: DARK_PRIMARY }}
                             >
                                 Subscribe to news
