@@ -1,9 +1,7 @@
 import { useState } from "react";
 export default function RoadMap() {
   const [openStep, setOpenStep] = useState<number | null>(0);
-  const DARK_PRIMARY = "#191A23";
-  const LIGHT_GRAY = "#F3F3F3";
-  const GREEN_ACCENT = "#B9FF66";
+
 
   interface WorkStep {
     step: string;
@@ -44,8 +42,8 @@ export default function RoadMap() {
         {/* Section Header */}
         <div className="mb-10">
           <h2
-            className="text-3xl md:text-4xl font-semibold rounded-xl px-4 py-2 bg-[#B9FF66] w-fit"
-            style={{ color: DARK_PRIMARY }}
+            className="text-3xl md:text-4xl font-semibold rounded-xl px-4 py-2 bg-[#B9FF66] w-fit text-DARK-PRIMARY"
+
           >
             Our Working Process
           </h2>
@@ -62,15 +60,15 @@ export default function RoadMap() {
             return (
               <div
                 key={index}
-                className="rounded-3xl p-6 shadow-2xl border-2 border-transparent cursor-pointer transition duration-300"
-                style={{
-                  backgroundColor: isOpen ? GREEN_ACCENT : LIGHT_GRAY,
-                  borderColor: isOpen ? GREEN_ACCENT : LIGHT_GRAY,
-                  boxShadow: `4px 4px 0 0 ${DARK_PRIMARY}`,
-                  color: DARK_PRIMARY,
-                }}
-                onClick={() => toggleStep(index)} // Entire block is clickable
+                onClick={() => toggleStep(index)}
+                className={`
+    rounded-3xl p-6 cursor-pointer border-2 transition duration-300
+     shadow-[4px_4px_0px_0px_#191A23] text-DARK-PRIMARY
+    
+    ${isOpen ? "bg-GREEN border-GREEN" : "bg-LIGHT-GRAY border-LIGHT-GRAY"}
+  `}
               >
+
                 <div className="flex items-start justify-between">
                   {/* Step Number and Title */}
                   <div className="flex flex-col sm:flex-row items-baseline gap-4">
@@ -84,14 +82,16 @@ export default function RoadMap() {
 
                   {/* Toggle Button (simplified icon) */}
                   <button
-                    className="w-8 h-8 rounded-full flex items-center justify-center border-2 border-[#191A23]"
-                    style={{
-                      backgroundColor: isOpen ? LIGHT_GRAY : DARK_PRIMARY,
-                      color: isOpen ? DARK_PRIMARY : LIGHT_GRAY,
-                    }}
-                    // The whole container is clickable, but you can explicitly use the button too.
-                    // onClick={() => toggleStep(index)}
+                    className={`
+    w-8 h-8 rounded-full flex items-center justify-center 
+    border-2 border-DARK-PRIMARY transition
+
+    ${isOpen
+                        ? "bg-LIGHT-GRAY text-DARK-PRIMARY"
+                        : "bg-DARK-PRIMARY text-LIGHT-GRAY"}
+  `}
                   >
+
                     {/* Shows '-' for the active step, '+' for others */}
                     {isOpen ? (
                       <svg

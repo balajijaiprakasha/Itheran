@@ -1,8 +1,5 @@
 import React from "react";
 
-const DARK_PRIMARY = "#191A23"; // Background Color
-const LIGHT_GRAY = "#F3F3F3"; // Text Color
-const GREEN_ACCENT = "#B9FF66"; // Accent Color
 
 const SocialIcon = ({
   children,
@@ -16,7 +13,7 @@ const SocialIcon = ({
     target="_blank"
     rel="noopener noreferrer"
     className="w-8 h-8 flex items-center justify-center rounded-full transition duration-300 hover:scale-110"
-    style={{ backgroundColor: LIGHT_GRAY, color: DARK_PRIMARY }}
+   
   >
     {children}
   </a>
@@ -25,8 +22,8 @@ const SocialIcon = ({
 export default function Footer() {
   return (
     <footer
-      className="w-full mt-auto py-8 px-6 sm:px-10 lg:px-20 rounded-t-3xl border-t-8"
-      style={{ backgroundColor: DARK_PRIMARY, color: LIGHT_GRAY }}
+      className="w-full mt-auto py-8 px-6 sm:px-10 lg:px-20 rounded-t-3xl border-t-8 bg-DARK-PRIMARY text-LIGHT-GRAY "
+     
     >
       <div className="max-w-7xl mx-auto flex flex-col space-y-10">
         {/* TOP SECTION: Logo, Nav, Socials */}
@@ -35,8 +32,8 @@ export default function Footer() {
           <div className="flex items-center text-3xl font-extrabold tracking-tight">
             {/* Simple Logo Placeholder (using an abstract shape) */}
             <svg
-              className="w-8 h-8 mr-2"
-              style={{ fill: GREEN_ACCENT }}
+              className="w-8 h-8 mr-2 fill-GREEN"
+              
               viewBox="0 0 24 24"
             >
               <path d="M12 2L2 22h20L12 2zm0 14l-4 8h8l-4-8z" />
@@ -101,8 +98,8 @@ export default function Footer() {
           {/* Contact Info */}
           <div className="space-y-3 text-sm">
             <div
-              className="inline-block px-3 py-1 rounded-md mb-2 font-semibold"
-              style={{ backgroundColor: GREEN_ACCENT, color: DARK_PRIMARY }}
+              className="inline-block px-3 py-1 rounded-md mb-2 font-semibold bg-GREEN text-DARK-PRIMARY"
+              
             >
               Contact us:
             </div>
@@ -115,23 +112,18 @@ export default function Footer() {
           {/* Newsletter Subscription */}
           <div className="flex flex-col justify-end">
             <div
-              className="p-3 rounded-xl flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3"
-              style={{ backgroundColor: DARK_PRIMARY }}
+              className="p-3 rounded-xl flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 bg-DARK-PRIMARY"
+             
             >
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full p-4 rounded-xl text-sm border-2 focus:outline-none"
-                style={{
-                  backgroundColor: DARK_PRIMARY,
-                  borderColor: GREEN_ACCENT,
-                  color: LIGHT_GRAY,
-                  boxShadow: `2px 2px 0 0 ${GREEN_ACCENT}`, // Accent shadow
-                }}
+                className="w-full p-4 rounded-xl text-sm border-2 focus:outline-none bg-DARK-PRIMARY border-GREEN text-LIGHT-GRAY "
+              
               />
               <button
-                className=" w-full sm:w-auto px-6 py-4 rounded-xl font-semibold text-sm transition hover:opacity-90"
-                style={{ backgroundColor: GREEN_ACCENT, color: DARK_PRIMARY }}
+                className=" w-full sm:w-auto px-6 py-4 rounded-xl font-semibold text-sm transition hover:opacity-90 bg-GREEN text-DARK-PRIMARY"
+                
               >
                 Subscribe to news
               </button>

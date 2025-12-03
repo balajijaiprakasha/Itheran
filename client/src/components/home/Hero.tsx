@@ -4,8 +4,7 @@ import animationData from "../../assets/animeOne.json";
 import Lottie from "react-lottie";
 
 export default function Hero() {
-  const DARK_PRIMARY = "#191A23";
-  const LIGHT_GRAY = "#F3F3F3";
+  
 
   const defaultOptions = {
     loop: true,
@@ -42,8 +41,8 @@ export default function Hero() {
 
         <Link
           to="/login"
-          className="mt-5 inline-block border-2 rounded-2xl transition duration-500 px-5 py-3 text-xl"
-          style={{ backgroundColor: DARK_PRIMARY, color: LIGHT_GRAY }}
+          className="mt-5 inline-block border-2 rounded-2xl transition duration-500 px-5 py-3 text-xl bg-DARK-PRIMARY text-LIGHT-GRAY"
+          
         >
           Get Started
         </Link>
