@@ -1,55 +1,68 @@
-import { Link } from "react-router-dom";
-
-import animationData from "../../assets/animeOne.json";
-import Lottie from "react-lottie";
+import { useEffect, useState } from "react";
+import bg from "/parallax/bg.jpg";
+import moon from "/parallax/moon.png";
+import mountain from "/parallax/mountain.png";
+import plants from "/parallax/plants.png";
+import birds from "/parallax/birds.png";
 
 export default function Hero() {
-  
+  const [scrollY, setScrollY] = useState(0);
 
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <section className="flex flex-col lg:flex-row items-center justify-between px-10 lg:px-40 py-24 gap-10">
-      {/* LEFT CONTENT */}
-      <div className="max-w-2xl space-y-6">
-        <p className="uppercase tracking-widest text-sm">
-          Unlock Your Interview Potential
-        </p>
+    <section
+      id="hero"
+      className="relative flex justify-center h-screen w-full overflow-hidden"
+    >
+      {/* Background */}
+      <img
+        src={bg}
+        alt="background Sky"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        style={{ transform: `translateY(${scrollY * 0.2}px)` }}
+      />
 
-        <h1 className="text-5xl leading-tight">
-          Avatar-Based <span className="font-bold">Skill Training</span>
-          <br />
-          For Future Leaders
-        </h1>
+      {/* Moon - Center */}
+      <img
+        src={moon}
+        alt="moon"
+        className="absolute z-10 w-[300px] top-1/4"
+        style={{ transform: `translateY(${scrollY * 0.4}px)` }}
+      />
 
-        <p className="text-lg">
-          Simulate real-world interviews, practice interpersonal and technical
-          skills, and grow with AI-driven feedback.
-        </p>
+      {/* ✅ Birds - Between Moon & Mountain */}
+      <img
+        src={birds}
+        alt="birds"
+        className="absolute z-15 w-[400px] right-0 top-1/3 pointer-events-none"
+        style={{
+          transform: `
+      translateY(${scrollY * 0.3}px)
+      translateX(${scrollY * -0.15}px)
+    `,
+        }}
+      />
 
-        <ul className="flex flex-col sm:flex-row gap-4 text-sm mt-4">
-          <li>No Credit Card Required</li>
-          <li>Real-time 3D Avatar Simulations</li>
-          <li>Boost Confidence and Communication</li>
-        </ul>
+      {/* Mountain - Bottom */}
+      <img
+        src={mountain}
+        alt="mountain"
+        className="absolute bottom-0 left-0 h-3/5 w-full z-20"
+        style={{ transform: `translateY(${scrollY * 0.15}px)` }}
+      />
 
-        <Link
-          to="/login"
-          className="mt-5 inline-block border-2 rounded-2xl transition duration-500 px-5 py-3 text-xl bg-DARK-PRIMARY text-LIGHT-GRAY"
-          
-        >
-          Get Started
-        </Link>
-      </div>
-
-      {/* LOTTIE ANIMATION */}
-      <Lottie options={defaultOptions} height={400} width={400} />
+      {/* Plants - Foreground Bottom */}
+      <img
+        src={plants}
+        alt="plants"
+        className="absolute bottom-0 left-0 w-full z-30"
+        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+      />
     </section>
   );
 }

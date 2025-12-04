@@ -1,7 +1,7 @@
 import { useState } from "react";
+
 export default function RoadMap() {
   const [openStep, setOpenStep] = useState<number | null>(0);
-
 
   interface WorkStep {
     step: string;
@@ -36,15 +36,13 @@ export default function RoadMap() {
   const toggleStep = (index: number) => {
     setOpenStep(openStep === index ? null : index);
   };
+
   return (
-    <section className="px-6 lg:px-32 py-20 ">
+    <section id="roadmap" className="px-6 lg:px-32 py-20 ">
       <div className="w-full">
         {/* Section Header */}
         <div className="mb-10">
-          <h2
-            className="text-3xl md:text-4xl font-semibold rounded-xl px-4 py-2 bg-[#B9FF66] w-fit text-DARK-PRIMARY"
-
-          >
+          <h2 className="text-3xl md:text-4xl font-semibold rounded-xl px-4 py-2 bg-[#B9FF66] w-fit text-DARK-PRIMARY">
             Our Working Process
           </h2>
           <p className="mt-2 text-base md:text-lg text-[#191A23]/80">
@@ -62,13 +60,16 @@ export default function RoadMap() {
                 key={index}
                 onClick={() => toggleStep(index)}
                 className={`
-    rounded-3xl p-6 cursor-pointer border-2 transition duration-300
-     shadow-[4px_4px_0px_0px_#191A23] text-DARK-PRIMARY
-    
-    ${isOpen ? "bg-GREEN border-GREEN" : "bg-LIGHT-GRAY border-LIGHT-GRAY"}
-  `}
+                  rounded-3xl p-6 cursor-pointer border-2 transition duration-300
+                  shadow-[4px_4px_0px_0px_#191A23] text-DARK-PRIMARY
+                  
+                  ${
+                    isOpen
+                      ? "bg-GREEN border-GREEN"
+                      : "bg-LIGHT-GRAY border-LIGHT-GRAY"
+                  }
+                `}
               >
-
                 <div className="flex items-start justify-between">
                   {/* Step Number and Title */}
                   <div className="flex flex-col sm:flex-row items-baseline gap-4">
@@ -83,15 +84,16 @@ export default function RoadMap() {
                   {/* Toggle Button (simplified icon) */}
                   <button
                     className={`
-    w-8 h-8 rounded-full flex items-center justify-center 
-    border-2 border-DARK-PRIMARY transition
+                      w-8 h-8 rounded-full flex items-center justify-center 
+                      border-2 border-DARK-PRIMARY transition
 
-    ${isOpen
-                        ? "bg-LIGHT-GRAY text-DARK-PRIMARY"
-                        : "bg-DARK-PRIMARY text-LIGHT-GRAY"}
-  `}
+                      ${
+                        isOpen
+                          ? "bg-LIGHT-GRAY text-DARK-PRIMARY"
+                          : "bg-DARK-PRIMARY text-LIGHT-GRAY"
+                      }
+                    `}
                   >
-
                     {/* Shows '-' for the active step, '+' for others */}
                     {isOpen ? (
                       <svg
