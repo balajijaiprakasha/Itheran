@@ -33,20 +33,20 @@ export default function Hero() {
         </p>
 
         <ul className="flex font-bold flex-col sm:flex-row gap-4 text-sm mt-4">
-          <li className="bg-GREEN text-DARK-PRIMARY px-2 p-1 rounded-full">
+          <li className="bg-SECONDARY text-PRIMARY px-2 p-1 rounded-full">
             Signup without Credit Card
           </li>
-          <li className="bg-DARK-PRIMARY text-LIGHT-GRAY px-2 p-1 rounded-full">
+          <li className="bg-PRIMARY text-LIGHT-GRAY px-2 p-1 rounded-full">
             Interact with our 3D Avatar
           </li>
-          <li className="text-GREEN bg-DARK-PRIMARY px-2 p-1 rounded-full">
+          <li className="text-SECONDARY bg-PRIMARY px-2 p-1 rounded-full">
             Boost your Confidence & Skills
           </li>
         </ul>
 
         <Link
           to="#"
-          className="mt-5 inline-block border-2 rounded-2xl transition duration-500 px-5 py-3 text-xl bg-DARK-PRIMARY text-LIGHT-GRAY"
+          className="mt-5 inline-block border-2 rounded-2xl transition duration-500 px-5 py-3 text-xl bg-PRIMARY text-LIGHT-GRAY"
         >
           Get Started
         </Link>

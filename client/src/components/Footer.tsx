@@ -11,7 +11,7 @@ const SocialIcon = ({
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="size-6 flex items-center justify-center transition duration-300 hover:scale-110 stroke-LIGHT-GRAY hover:stroke-GREEN"
+    className="size-6 flex items-center justify-center transition duration-300 hover:scale-110 stroke-LIGHT-GRAY hover:stroke-SECONDARY"
   >
     {children}
   </a>
@@ -19,14 +19,14 @@ const SocialIcon = ({
 
 export default function Footer() {
   return (
-    <footer className="w-full mt-auto py-8 px-6 sm:px-10 lg:px-20 rounded-t-3xl border-t-8 bg-DARK-PRIMARY text-LIGHT-GRAY ">
+    <footer className="w-full mt-auto py-8 px-6 sm:px-10 lg:px-20 rounded-t-3xl border-t-8 bg-PRIMARY text-LIGHT-GRAY ">
       <div className="max-w-7xl mx-auto flex flex-col space-y-10">
         {/* TOP SECTION: Logo, Nav, Socials */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-6 lg:space-y-0 pb-6  mb-3 border-gray-700/50">
           {/* Logo/Brand Name (Placeholder) */}
           <div className="flex items-center text-3xl font-extrabold tracking-tight">
             {/* Simple Logo Placeholder (using an abstract shape) */}
-            <svg className="w-8 h-8 mr-2 fill-GREEN" viewBox="0 0 24 24">
+            <svg className="w-8 h-8 mr-2 fill-SECONDARY" viewBox="0 0 24 24">
               <path d="M12 2L2 22h20L12 2zm0 14l-4 8h8l-4-8z" />
             </svg>
             AITHERAN
@@ -80,13 +80,13 @@ export default function Footer() {
 
           {/* Newsletter Subscription */}
           <div className="flex flex-col justify-end">
-            <div className="p-3 rounded-xl flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 bg-DARK-PRIMARY">
+            <div className="p-3 rounded-xl flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-3 bg-PRIMARY">
               <input
                 type="email"
                 placeholder="Email"
-                className="w-full p-4 rounded-xl text-sm border-2 focus:outline-none bg-DARK-PRIMARY border-GREEN text-LIGHT-GRAY "
+                className="w-full p-4 rounded-xl text-sm border-2 focus:outline-none bg-PRIMARY border-SECONDARY text-LIGHT-GRAY "
               />
-              <button className=" w-full sm:w-auto px-6 py-4 rounded-xl font-semibold text-sm transition hover:opacity-90 bg-GREEN text-DARK-PRIMARY">
+              <button className=" w-full sm:w-auto px-6 py-4 rounded-xl font-semibold text-sm transition hover:opacity-90 bg-SECONDARY text-PRIMARY">
                 Subscribe
               </button>
             </div>

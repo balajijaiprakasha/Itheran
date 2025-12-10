@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import bg from "/parallax/bg.jpg";
 import moon from "/parallax/moon.png";
 import mountain from "/parallax/mountain.png";
-import plants from "/parallax/plants.png";
+import trees from "/parallax/trees.png";
 import birds from "/parallax/birds.png";
 import cloud1 from "/parallax/cloud1.png";
 import cloud2 from "/parallax/cloud2.png";
@@ -21,11 +21,35 @@ export default function Hero() {
       id="hero"
       className="relative flex justify-center h-screen w-full overflow-hidden"
     >
+      <div className="absolute max-w-2xl space-y-6 text-LIGHT-GRAY -translate-y-1/2 z-30 top-1/2">
+        <h1 className="text-5xl leading-tight">
+          Avatar-Based{" "}
+          <span className="font-bold text-SECONDARY">Skill Training</span>
+        </h1>
+
+        <p className="text-lg font-medium">
+          Simulate real-world interviews, Practice Interpersonal & Technical
+          skills, and grow with AI-driven feedback.
+        </p>
+
+        <ul className="flex font-bold flex-col sm:flex-row gap-4 text-sm mt-4">
+          <li className="bg-SECONDARY text-PRIMARY px-2 p-1 rounded-full">
+            Signup without Credit Card
+          </li>
+          <li className="bg-PRIMARY text-LIGHT-GRAY px-2 p-1 rounded-full">
+            Interact with our 3D Avatar
+          </li>
+          <li className="text-PRIMARY bg-LIGHT-GRAY px-2 p-1 rounded-full">
+            Boost your Confidence & Skills
+          </li>
+        </ul>
+      </div>
+
       {/* Background */}
       <img
         src={bg}
         alt="background Sky"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute w-full h-full object-cover opacity-65 z-0"
         style={{ transform: `translateY(${scrollY * 0.2}px)` }}
       />
 
@@ -37,7 +61,7 @@ export default function Hero() {
         style={{ transform: `translateY(${scrollY * 0.4}px)` }}
       />
 
-      {/* ✅ Birds - Between Moon & Mountain */}
+      {/* Birds - Between Moon & Mountain */}
       <img
         src={birds}
         alt="birds"
@@ -49,6 +73,7 @@ export default function Hero() {
     `,
         }}
       />
+
       <img
         src={cloud2}
         alt="cloud"
@@ -76,15 +101,15 @@ export default function Hero() {
       <img
         src={mountain}
         alt="mountain"
-        className="absolute bottom-0 left-0 h-3/5 w-full z-20"
+        className="absolute bottom-0 h-3/5 w-full z-20"
         style={{ transform: `translateY(${scrollY * 0.15}px)` }}
       />
 
-      {/* Plants - Foreground Bottom */}
+      {/* trees - Foreground Bottom */}
       <img
-        src={plants}
-        alt="plants"
-        className="absolute bottom-0 left-0 w-full z-30"
+        src={trees}
+        alt="trees"
+        className="absolute bottom-0 w-full z-30"
         style={{ transform: `translateY(${scrollY * 0.5}px)` }}
       />
     </section>

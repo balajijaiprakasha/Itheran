@@ -6,12 +6,12 @@ import RoadMap from "../../components/home/RoadMap";
 
 export default function Home() {
   return (
-    <div className="text-DARK-PRIMARY">
+    <div className="text-PRIMARY">
       <Hero />
       <Service />
       <RoadMap />
-      <AboutUs />
       <Contact />
+      <AboutUs />
     </div>
   );
 }

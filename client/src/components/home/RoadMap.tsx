@@ -41,10 +41,10 @@ export default function RoadMap() {
     <section id="roadmap" className="px-6 lg:px-32 py-20">
       {/* HEADER */}
       <div className="mb-10">
-        <h2 className="text-3xl md:text-4xl font-semibold rounded-xl px-4 py-2 bg-[#B9FF66] w-fit text-DARK-PRIMARY">
+        <h2 className="text-3xl md:text-4xl font-semibold rounded-xl px-4 py-2 bg-SECONDARY w-fit text-PRIMARY">
           Our Working Process
         </h2>
-        <p className="mt-3 text-base md:text-lg text-[#191A23]/80">
+        <p className="mt-3 text-base md:text-lg text-LIGHT-GRAY">
           Step-by-Step Guide to Achieving Your Goals
         </p>
       </div>
@@ -71,7 +71,7 @@ export default function RoadMap() {
                   shadow-[4px_4px_0px_0px_#191A23]
                   ${
                     isOpen
-                      ? "border-GREEN"
+                      ? "border-SECONDARY"
                       : "border-LIGHT-GRAY hover:-translate-y-1 hover:transition-transform hover:duration-300 hover:ease-out"
                   }
                 `}
@@ -95,9 +95,7 @@ export default function RoadMap() {
               {/* ✅ CONTENT */}
               <div
                 className={`
-                    relative z-10 transition-colors duration-300
-                    ${isOpen ? "text-white" : "text-DARK-PRIMARY"}
-                  `}
+                    relative z-10 transition-colors duration-300 text-LIGHTER-GRAY`}
               >
                 <div className="flex items-start justify-between">
                   <div className="flex flex-col sm:flex-row items-baseline gap-4">
@@ -116,8 +114,8 @@ export default function RoadMap() {
                         border-2 transition-all duration-300
                         ${
                           isOpen
-                            ? "bg-GREEN text-DARK-PRIMARY border-LIGHT-GRAY"
-                            : "bg-DARK-PRIMARY text-GREEN border-DARK-PRIMARY"
+                            ? "bg-SECONDARY text-PRIMARY border-LIGHT-GRAY"
+                            : "bg-PRIMARY text-SECONDARY border-PRIMARY"
                         }
                       `}
                   >

@@ -13,6 +13,7 @@ interface ServiceItem {
   bg: string;
   text: string;
   titleBg: string;
+  arrowFilter: string;
   illustration: string;
 }
 
@@ -84,10 +85,13 @@ const ServiceCard: FC<ServiceCardProps> = ({
   bg,
   text,
   titleBg,
+  arrowFilter,
   illustration,
+  style,
 }) => {
   return (
     <div
+      style={style}
       className={`group relative rounded-3xl p-8 md:p-10 border-2 border-PRIMARY flex flex-col justify-between shadow-[4px_4px_0px_0px_#191A23] hover:-translate-y-1 hover:transition-transform hover:duration-300 hover:ease-out ${bg} ${text} will-change-transform`}
     >
       <div className="flex justify-between items-start gap-6">
@@ -98,11 +102,11 @@ const ServiceCard: FC<ServiceCardProps> = ({
             {title}
           </span>
 
-          <div className="bg-white rounded-full flex items-center gap-3 px-4 py-2 w-fit cursor-pointer overflow-hidden">
-            <GifController
+          <div className="bg-LIGHTER-GRAY rounded-full flex items-center gap-3 px-4 py-2 w-fit cursor-pointer overflow-hidden">
+            <img
               src={arrow}
               alt="learn more"
-              className="size-8 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:scale-110"
+              className={`size-8 transition-transform duration-300 ease-out group-hover:translate-x-1 group-hover:scale-110 ${arrowFilter}`}
             />
             <span className="text-lg text-PRIMARY font-medium LIGHTER-GRAYspace-nowrap">
               Learn more
@@ -113,7 +117,7 @@ const ServiceCard: FC<ServiceCardProps> = ({
         <GifController
           src={illustration}
           alt={title}
-          className="size-24 md:size-28 rounded-full"
+          className="w-24 h-24 md:w-28 md:h-28 rounded-full bg-LIGHTER-GRAY/10"
         />
       </div>
 
@@ -125,6 +129,7 @@ const ServiceCard: FC<ServiceCardProps> = ({
 // --- Main Component ---
 export default function Service() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(0);
 
   const services: ServiceItem[] = [
     {
@@ -134,6 +139,7 @@ export default function Service() {
       bg: "bg-LIGHT-GRAY",
       text: "text-PRIMARY",
       titleBg: "bg-SECONDARY",
+      arrowFilter: "SECONDARY-icon",
       illustration: interview,
     },
     {
@@ -142,6 +148,7 @@ export default function Service() {
       bg: "bg-SECONDARY",
       text: "text-PRIMARY",
       titleBg: "bg-LIGHT-GRAY",
+      arrowFilter: "SECONDARY-icon",
       illustration: resume,
     },
     {
@@ -150,9 +157,60 @@ export default function Service() {
       bg: "bg-PRIMARY",
       text: "text-LIGHT-GRAY",
       titleBg: "bg-LIGHT-GRAY",
+      arrowFilter: "",
       illustration: skills,
     },
   ];
+
+  // --- Strict 0 -> 1 Clamped Scroll Progress ---
+  useEffect(() => {
+    const handleScroll = () => {
+      const el = containerRef.current;
+      if (!el) return;
+
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+
+      const start = vh * 0.33;
+      const end = rect.height - vh;
+
+      const raw = (start - rect.top) / end;
+      const p = Math.min(1, Math.max(0, raw));
+
+      setProgress(p);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // --- Transform for each card ---
+  const getTransform = (index: number) => {
+    const p = progress;
+
+    let xOffset = 0;
+    let yOffset = 0;
+    let rotation = 0;
+
+    if (index === 0) {
+      xOffset = 55;
+      yOffset = 55;
+      rotation = -6;
+    } else if (index === 1) {
+      xOffset = -55;
+      yOffset = 55;
+      rotation = 6;
+    } else if (index === 2) {
+      xOffset = 55;
+      yOffset = -55;
+      rotation = -3;
+    }
+
+    return `translate(${xOffset * p}%, ${yOffset * p}%) rotate(${
+      rotation * p
+    }deg)`;
+  };
 
   return (
     <section
@@ -171,7 +229,15 @@ export default function Service() {
       <div className="bottom-0 h-full flex flex-col items-center justify-center px-6 lg:px-32">
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-10 w-full max-w-6xl relative perspective-1000">
           {services.map((s, i) => (
-            <ServiceCard key={i} {...s} />
+            <ServiceCard
+              key={i}
+              {...s}
+              style={{
+                transform: getTransform(i),
+                zIndex: services.length - i,
+                transition: "transform 0.1s linear",
+              }}
+            />
           ))}
         </div>
       </div>

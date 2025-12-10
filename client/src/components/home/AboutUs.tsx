@@ -11,16 +11,16 @@ export default function AboutUs() {
     },
   };
   return (
-    <section id="aboutus" className="py-24 px-6 lg:px-32  text-DARK-PRIMARY">
+    <section id="aboutus" className="py-24 px-6 lg:px-32  text-PRIMARY">
       {/* MAIN CARD */}
       <div
         className="w-full rounded-3xl flex flex-col md:flex-row items-center justify-between 
-                   px-10 py-16 mb-24 bg-LIGHT-GRAY border-2 border-DARK-PRIMARY 
-                   shadow-[4px_4px_0px_0px_#191A23] md:shadow-DARK-PRIMARY"
+                   px-10 py-16 mb-24 bg-LIGHT-GRAY border-2 border-PRIMARY 
+                   shadow-[4px_4px_0px_0px_#191A23] md:shadow-PRIMARY"
       >
         {/* LEFT SECTION */}
         <div className="flex-1 space-y-5">
-          <h2 className="text-4xl md:text-5xl font-bold text-DARK-PRIMARY">
+          <h2 className="text-4xl md:text-5xl font-bold text-SECONDARY">
             Who We Are
           </h2>
 
@@ -32,7 +32,7 @@ export default function AboutUs() {
 
           <button
             className="w-fit py-3 px-5 rounded-xl text-lg font-semibold transition-all
-                 bg-DARK-PRIMARY text-LIGHT-GRAY border-2 border-DARK-PRIMARY
+                 bg-PRIMARY text-LIGHT-GRAY border-2 border-PRIMARY
                  shadow-[2px_2px_0_0_#8AE500] hover:shadow-[4px_4px_0_0_#8AE500]"
           >
             Get your free proposal
@@ -49,10 +49,10 @@ export default function AboutUs() {
       <div className="grid md:grid-cols-2 gap-14 items-start">
         {/* Mission Card */}
         <div
-          className="rounded-3xl p-10 border-2 bg-LIGHT-GRAY border-DARK-PRIMARY
-                     shadow-[4px_4px_0px_0px_#191A23] hover:-translate-y-1 hover:shadow-DARK-PRIMARY transition"
+          className="rounded-3xl p-10 border-2 bg-LIGHT-GRAY border-PRIMARY
+                     shadow-[4px_4px_0px_0px_#191A23] hover:-translate-y-1 hover:shadow-PRIMARY transition"
         >
-          <h3 className="text-3xl font-semibold mb-4 px-3 py-1 rounded-md w-fit bg-GREEN text-DARK-PRIMARY">
+          <h3 className="text-3xl font-semibold mb-4 px-3 py-1 rounded-md w-fit text-LIGHT-GRAY bg-PRIMARY">
             Our Mission
           </h3>
           <p className="text-[#191A23]/80 text-lg leading-relaxed">
@@ -63,10 +63,10 @@ export default function AboutUs() {
 
         {/* Vision Card */}
         <div
-          className="rounded-3xl p-10 border-2 bg-LIGHT-GRAY border-DARK-PRIMARY
-                     shadow-[4px_4px_0px_0px_#191A23] hover:-translate-y-1 hover:shadow-DARK-PRIMARY transition"
+          className="rounded-3xl p-10 border-2 bg-LIGHT-GRAY border-PRIMARY
+                     shadow-[4px_4px_0px_0px_#191A23] hover:-translate-y-1 hover:shadow-PRIMARY transition"
         >
-          <h3 className="text-3xl font-semibold mb-4 px-3 py-1 rounded-md w-fit bg-GREEN text-DARK-PRIMARY">
+          <h3 className="text-3xl font-semibold mb-4 px-3 py-1 rounded-md w-fit text-LIGHT-GRAY bg-PRIMARY">
             Our Vision
           </h3>
           <p className="text-[#191A23]/80 text-lg leading-relaxed">

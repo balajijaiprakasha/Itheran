@@ -7,8 +7,8 @@ export default function Navbar() {
     { name: "Hero", path: "/#hero", id: "hero" },
     { name: "Services", path: "/#services", id: "services" },
     { name: "Roadmap", path: "/#roadmap", id: "roadmap" },
-    { name: "About us", path: "/#aboutus", id: "aboutus" },
     { name: "Contact", path: "/#contact", id: "contact" },
+    { name: "About us", path: "/#aboutus", id: "aboutus" },
   ];
 
   const activeSection = useScrollSpy([
@@ -62,9 +62,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center">
         <Link
           to="/"
-          className="text-2xl text-DARK-PRIMARY font-bold transition duration-150"
+          className="text-2xl text-PRIMARY font-bold transition duration-150"
         >
-          <span>★</span> <span className="text-GREEN">AI</span>THERAN
+          <span>★</span> <span className="text-SECONDARY">AI</span>THERAN
         </Link>
 
         <div className="ml-auto hidden md:flex items-center space-x-8">
@@ -89,11 +89,11 @@ export default function Navbar() {
               <a
                 key={item.id}
                 href={item.path}
-                className="relative inline-block font-medium text-base text-DARK-PRIMARY group"
+                className="relative inline-block font-medium text-base text-PRIMARY group"
               >
                 {item.name}
                 <span
-                  className={`pointer-events-none absolute left-0 -bottom-1 h-[3px] bg-GREEN w-full transform transition-transform duration-300 ${originClass} ${shownClass} group-hover:scale-x-100`}
+                  className={`pointer-events-none absolute left-0 -bottom-1 h-[3px] bg-SECONDARY w-full transform transition-transform duration-300 ${originClass} ${shownClass} group-hover:scale-x-100`}
                 />
               </a>
             );
