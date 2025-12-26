@@ -72,7 +72,7 @@ export default function Contact() {
             type="submit"
             className="w-full py-3 rounded-xl text-lg font-semibold transition-all
                  bg-PRIMARY text-LIGHT-GRAY border-2 border-PRIMARY
-                 shadow-[2px_2px_0_0_#8AE500] hover:shadow-[4px_4px_0_0_#8AE500]"
+                 shadow-[2px_2px_0_0] hover:shadow-[4px_4px_0_0] shadow-SECONDARY"
           >
             Send Message
           </button>

@@ -33,7 +33,7 @@ export default function AboutUs() {
           <button
             className="w-fit py-3 px-5 rounded-xl text-lg font-semibold transition-all
                  bg-PRIMARY text-LIGHT-GRAY border-2 border-PRIMARY
-                 shadow-[2px_2px_0_0_#8AE500] hover:shadow-[4px_4px_0_0_#8AE500]"
+                 shadow-[2px_2px_0_0] hover:shadow-[4px_4px_0_0] shadow-SECONDARY"
           >
             Get your free proposal
           </button>

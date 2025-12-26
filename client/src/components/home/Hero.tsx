@@ -78,7 +78,7 @@ export default function Hero() {
       <img
         src={icons}
         alt="icons"
-        className="absolute top-1/3 left-12 z-5"
+        className="absolute top-1/3 left-1/12 z-5"
         style={{ transform: `translateY(${scrollY * 0.6}px)` }}
       />
 
