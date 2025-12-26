@@ -76,7 +76,7 @@ export default function RoadMap() {
                   <div className="flex items-center gap-6">
                     <span
                       className={`text-4xl font-black tracking-tight transition-colors duration-300 ${
-                        isOpen ? "text-secondary" : "text-white/20"
+                        isOpen ? "text-secondary" : "text-light/20"
                       }`}
                     >
                       {item.step}

@@ -1,78 +1,19 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useState } from "react";
 import type { FC } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Lottie from "react-lottie";
 
-import resume from "/services/resume.gif";
-import skills from "/services/skills.gif";
-import interview from "/services/interview.gif";
+import resume from "../../assets/resume.json";
+import skills from "../../assets/skills.json";
+import interview from "../../assets//interview.json";
 
 // --- Types ---
 interface ServiceItem {
   id: string;
   title: string;
   description: string;
-  bg: string;
-  text: string;
-  titleBg: string;
-  illustration: string;
+  illustration: object;
 }
-
-interface GifControllerProps {
-  src: string;
-  alt: string;
-  className?: string;
-}
-
-// --- GifController Component ---
-const GifController: FC<GifControllerProps> = ({
-  src,
-  alt,
-  className = "",
-}) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
-  const [isLoaded, setIsLoaded] = useState(false);
-
-  useEffect(() => {
-    const image = imgRef.current;
-    const canvas = canvasRef.current;
-    if (!image || !canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const drawFrame = () => {
-      canvas.width = image.naturalWidth;
-      canvas.height = image.naturalHeight;
-      ctx.drawImage(image, 0, 0);
-      setIsLoaded(true);
-    };
-
-    if (image.complete) drawFrame();
-    else image.onload = drawFrame;
-
-    return () => {
-      image.onload = null;
-    };
-  }, [src]);
-
-  return (
-    <div className={`relative shrink-0 overflow-hidden ${className}`}>
-      <img
-        ref={imgRef}
-        src={src}
-        alt={alt}
-        className="absolute inset-0 w-full h-full object-contain transition-opacity duration-200 opacity-0 group-hover:opacity-100"
-      />
-      <canvas
-        ref={canvasRef}
-        className={`w-full h-full object-contain pointer-events-none transition-opacity duration-200 ${
-          isLoaded ? "opacity-100 group-hover:opacity-0" : "opacity-0"
-        }`}
-      />
-    </div>
-  );
-};
 
 // --- ServiceCard Component ---
 interface ServiceCardProps extends ServiceItem {
@@ -85,21 +26,38 @@ const ServiceCard: FC<ServiceCardProps> = ({
   description,
   illustration,
 }) => {
-  const navigate = useNavigate();
+  const [isPaused, setIsPaused] = useState(true);
+
+  const defaultOptions = {
+    loop: true,
+    autoplay: false,
+    animationData: illustration,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
 
   return (
-    <div
-      onClick={() => navigate(`/features/${id}`)}
+    <Link
+      to={`/features/${id}`}
+      onMouseEnter={() => setIsPaused(false)}
+      onMouseLeave={() => setIsPaused(true)}
       className="group glass relative rounded-3xl p-8 flex flex-col gap-6 hover:border-secondary/50 hover:shadow-premium transition-all duration-500 overflow-hidden cursor-pointer"
     >
       <div className="flex justify-between items-center">
-        <div className="size-16 rounded-2xl bg-secondary/10 flex items-center justify-center p-3">
-          <GifController
-            src={illustration}
-            alt={title}
-            className="w-full h-full"
-          />
+        <div className="size-16 rounded-2xl bg-secondary/10 flex items-center justify-center p-2">
+          {/* Lottie Animation Container */}
+          <div className="w-full h-full pointer-events-none">
+            <Lottie
+              options={defaultOptions}
+              isPaused={isPaused}
+              height="100%"
+              width="100%"
+            />
+          </div>
         </div>
+
+        {/* Arrow Icon */}
         <div className="bg-white/5 size-10 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -129,7 +87,7 @@ const ServiceCard: FC<ServiceCardProps> = ({
         </span>
         <div className="size-1 w-0 group-hover:w-12 bg-secondary transition-all duration-500 rounded-full" />
       </div>
-    </div>
+    </Link>
   );
 };
 
@@ -143,9 +101,6 @@ export default function Service() {
       title: "AI Interview",
       description:
         "Emotion-aware AI that analyzes facial cues and voice data to provide real-time feedback.",
-      bg: "bg-light-gray",
-      text: "text-primary",
-      titleBg: "bg-secondary",
       illustration: interview,
     },
     {
@@ -153,9 +108,6 @@ export default function Service() {
       title: "Resume Generator",
       description:
         "AI-powered resume crafting that optimizes for ATS and highlights your impact.",
-      bg: "bg-secondary",
-      text: "text-primary",
-      titleBg: "bg-light-gray",
       illustration: resume,
     },
     {
@@ -163,9 +115,6 @@ export default function Service() {
       title: "Skill Training",
       description:
         "Personalized roadmaps and curated resources to help you bridge the tech gap.",
-      bg: "bg-primary",
-      text: "text-light-gray",
-      titleBg: "bg-light-gray",
       illustration: skills,
     },
   ];

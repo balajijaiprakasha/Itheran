@@ -146,9 +146,6 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Contact Info */}
           <div className="space-y-4 text-sm">
-            <h4 className="text-light font-semibold uppercase tracking-wider mb-4">
-              Contact us
-            </h4>
             <p>Email: hello@aitheran.ai</p>
             <p>Phone: +1 (555) 123-4567</p>
             <p>Address: Innovation District, Tech City</p>

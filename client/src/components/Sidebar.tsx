@@ -5,10 +5,10 @@ interface SidebarProps {
 
 export default function Sidebar({ activeId, onSelect }: SidebarProps) {
   const items = [
+    { id: "about", icon: "🏢", label: "About Itheran" },
     { id: "ai-interview", icon: "🤖", label: "AI Interview" },
     { id: "skill-training", icon: "🧠", label: "Skill Training" },
     { id: "resume-gen", icon: "📄", label: "Resume Generation" },
-    { id: "about", icon: "🏢", label: "About Itheran" },
   ];
 
   return (

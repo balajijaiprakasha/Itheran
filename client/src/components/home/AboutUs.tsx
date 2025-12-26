@@ -1,5 +1,6 @@
 import Lottie from "react-lottie";
 import animationData from "../../assets/about.json";
+import { Link } from "react-router-dom";
 
 export default function AboutUs() {
   const defaultOptions = {
@@ -34,10 +35,11 @@ export default function AboutUs() {
             committed to transforming professional growth through intelligent,
             human-centric AI tools.
           </p>
-
-          <button className="px-10 py-4 rounded-2xl bg-secondary text-primary font-bold text-lg hover:bg-accent hover:scale-105 transition-all duration-300 shadow-glow">
-            Join Our Mission
-          </button>
+          <Link to={"/features/about"}>
+            <button className="px-10 py-4 rounded-2xl bg-secondary text-primary font-bold text-lg hover:bg-accent hover:scale-105 transition-all duration-300 shadow-glow">
+              Know More
+            </button>
+          </Link>
         </div>
 
         {/* RIGHT IMAGE */}
