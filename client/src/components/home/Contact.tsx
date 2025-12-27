@@ -120,7 +120,7 @@ export default function Contact() {
                 <p className="text-xs font-bold uppercase tracking-widest text-muted">
                   Email Us
                 </p>
-                <p className="text-lg font-semibold">hello@aitheran.ai</p>
+                <p className="text-lg font-semibold">hello@anthronxt.ai</p>
               </div>
             </div>
           </div>

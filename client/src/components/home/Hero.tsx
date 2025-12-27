@@ -82,10 +82,11 @@ export default function Hero() {
       </div>
 
       <div
-        className="absolute bottom-0 left-0 z-10 opacity-40 md:opacity-100 pointer-events-none"
+        className="absolute bottom-0 left-0 z-10 pointer-events-none
+             w-[280px] sm:w-[360px] md:w-[480px] lg:w-[600px]"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
-        <Lottie options={defaultOptions} height={600} width={600} />
+        <Lottie options={defaultOptions} />
       </div>
     </section>
   );

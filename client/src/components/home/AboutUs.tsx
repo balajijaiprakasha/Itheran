@@ -31,7 +31,7 @@ export default function AboutUs() {
           </h2>
 
           <p className="text-lg md:text-xl text-muted leading-relaxed max-w-xl mx-auto lg:mx-0">
-            Aitheran is a collective of educators, developers, and innovators
+            Anthronxt is a collective of educators, developers, and innovators
             committed to transforming professional growth through intelligent,
             human-centric AI tools.
           </p>

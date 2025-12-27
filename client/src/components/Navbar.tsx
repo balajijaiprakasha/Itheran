@@ -75,8 +75,8 @@ export default function Navbar() {
           className="text-2xl font-bold tracking-tight hover:opacity-80 transition duration-150 flex items-center"
           style={{ color: "var(--light)" }}
         >
-          <span style={{ color: "var(--secondary)" }}>★</span> AI
-          <span style={{ color: "var(--secondary)" }}>THERAN</span>
+          <span className="text-light">★</span>
+          <span className="text-secondary">Anthronxt</span>
         </Link>
 
         <div className="ml-auto hidden md:flex items-center space-x-8">
@@ -112,7 +112,7 @@ export default function Navbar() {
               >
                 {item.name}
                 <span
-                  className={`pointer-events-none absolute left-0 -bottom-1 h-[2px] bg-secondary w-full transform transition-transform duration-300 ${originClass} ${shownClass} group-hover:scale-x-100`}
+                  className={`pointer-events-none absolute left-0 -bottom-1 h-0.5 bg-secondary w-full transform transition-transform duration-300 ${originClass} ${shownClass} group-hover:scale-x-100`}
                 />
               </a>
             );

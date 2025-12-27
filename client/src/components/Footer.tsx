@@ -18,31 +18,22 @@ const SocialIcon = ({
 );
 
 export default function Footer() {
-  const [isDark, setIsDark] = useState(true);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return localStorage.getItem("theme") !== "light";
+  });
 
-  // Theme synchronization
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    if (savedTheme === "light") {
-      setIsDark(false);
-      document.documentElement.classList.remove("dark");
-    } else {
-      setIsDark(true);
-      document.documentElement.classList.add("dark");
-    }
-  }, []);
-
-  const toggleTheme = () => {
-    const newTheme = !isDark;
-    setIsDark(newTheme);
-    if (newTheme) {
+    if (isDark) {
       document.documentElement.classList.add("dark");
       localStorage.setItem("theme", "dark");
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.setItem("theme", "light");
     }
-  };
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark((prev) => !prev);
 
   return (
     <footer className="w-full mt-auto py-16 px-6 sm:px-10 lg:px-32 border-t rounded-4xl border-white/10 bg-primary text-muted">
@@ -51,8 +42,8 @@ export default function Footer() {
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between space-y-8 lg:space-y-0">
           {/* Logo/Brand Name */}
           <div className="flex items-center text-3xl font-bold tracking-tight text-light">
-            <span className="text-secondary mr-2">★</span> AI
-            <span className="text-secondary">THERAN</span>
+            <span className="text-light mr-2">★</span>
+            <span className="text-secondary">Anthronxt</span>
           </div>
 
           {/* Social Icons & Theme Toggle */}
@@ -146,8 +137,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           {/* Contact Info */}
           <div className="space-y-4 text-sm">
-            <p>Email: hello@aitheran.ai</p>
-            <p>Phone: +1 (555) 123-4567</p>
+            <p>Email: hello@anthronxt.ai</p>
+            <p>Phone: +91 XXXXX XXXXX</p>
             <p>Address: Innovation District, Tech City</p>
           </div>
 
@@ -171,7 +162,8 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs tracking-widest uppercase">
           <p>
-            © {new Date().getFullYear()} AITHERAN. Empowering growth with AI.
+            © {new Date().getFullYear()} Anthronxt Solutions Private Limited.
+            Empowering growth with AI.
           </p>
           <div className="flex gap-8">
             <a href="#" className="hover:text-secondary transition-colors">

@@ -1,9 +1,9 @@
 export const sections = {
   about: {
-    title: "About Itheran",
+    title: "About Anthronxt",
     tagline: "Empowering Careers through Innovation",
     description:
-      "Itheran is more than just a platform; it's your personal career companion. Born from the need to democratize high-level interview coaching and skill mapping.",
+      "Anthronxt is more than just a platform; it's your personal career companion. Born from the need to democratize high-level interview coaching and skill mapping.",
     points: [
       {
         title: "Our Mission",
