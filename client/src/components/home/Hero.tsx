@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex justify-center items-center min-h-dvh w-full overflow-hidden bg-linear-to-t from-primary to-secondary/40"
+      className="relative flex justify-center items-center min-h-dvh w-full overflow-hidden bg-linear-to-t from-primary to-secondary/30"
     >
       {/* Background Gradient & Mesh */}
       <div className="absolute inset-0 bg-radial-[at_50%_50%] from-secondary/10 to-transparent z-0 opacity-50" />
@@ -44,7 +44,7 @@ export default function Hero() {
           </span>
         </h1>
 
-        <p className="text-lg md:text-xl text-light max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed">
           Simulate real-world interviews, practice interpersonal & technical
           skills, and grow with AI-driven feedback in an immersive 3D
           environment.
