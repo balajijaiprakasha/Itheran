@@ -23,7 +23,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex justify-center items-center min-h-[110vh] w-full overflow-hidden bg-linear-to-t from-primary to-secondary/40"
+      className="relative flex justify-center items-center min-h-dvh w-full overflow-hidden bg-linear-to-t from-primary to-secondary/30"
     >
       {/* Background Gradient & Mesh */}
       <div className="absolute inset-0 bg-radial-[at_50%_50%] from-secondary/10 to-transparent z-0 opacity-50" />
@@ -50,7 +50,7 @@ export default function Hero() {
           environment.
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4 pt-4">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 pt-4">
           <div className="glass px-6 py-3 rounded-2xl flex items-center gap-3 group hover:border-secondary/50 transition-all duration-300">
             <div className="size-2 rounded-full bg-secondary group-hover:animate-ping" />
             <span className="text-sm font-semibold tracking-wide text-light">
@@ -71,21 +71,21 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="pt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
+        {/* <div className="pt-10 flex flex-col sm:flex-row items-center justify-center gap-6">
           <button className="px-8 py-4 bg-secondary text-primary font-bold rounded-2xl hover:bg-accent hover:scale-105 transition-all duration-300 shadow-glow">
             Get Started Now
           </button>
           <button className="px-8 py-4 border border-white/10 glass font-bold rounded-2xl hover:bg-white/5 transition-all duration-300 text-light">
             Watch Demo
           </button>
-        </div>
+        </div> */}
       </div>
 
       <div
-        className="absolute bottom-0 left-0 z-10 opacity-40 md:opacity-100 pointer-events-none"
+        className="absolute h-1/2 md:h-full z-10 pointer-events-none opacity-8"
         style={{ transform: `translateY(${scrollY * 0.3}px)` }}
       >
-        <Lottie options={defaultOptions} height={600} width={600} />
+        <Lottie options={defaultOptions} />
       </div>
     </section>
   );
